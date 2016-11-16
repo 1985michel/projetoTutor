@@ -25,7 +25,7 @@
                      <children>
                         <SplitMenuButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Matérias">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="Cadastrar Matéria" />
+                            <MenuItem mnemonicParsing="false" onAction="#exibirCadastrarMateria" text="Cadastrar Matéria" />
                             <MenuItem mnemonicParsing="false" text="Ver Todas" />
                           </items>
                         </SplitMenuButton>

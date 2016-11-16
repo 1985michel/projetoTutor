@@ -21,7 +21,7 @@ public class MainApp extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("AddressApp");
+		this.primaryStage.setTitle("Projeto Tutor - Learn once, remember forever!");
 
 		initRootLayout();
 
@@ -54,7 +54,7 @@ public class MainApp extends Application {
 	/**
      * Mostra o person overview dentro do root layout.
      */
-    public void showTeste(BorderPane areaDeTrabalho) {
+    public void showTeste(BorderPane areaDeTrabalhoBorderPane) {
         try {
             // Carrega o person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -62,7 +62,7 @@ public class MainApp extends Application {
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Define o person overview dentro do root layout.
-            areaDeTrabalho.setCenter(personOverview);
+            areaDeTrabalhoBorderPane.setCenter(personOverview);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,5 +81,20 @@ public class MainApp extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+	public void showCadastrarMateria(BorderPane areaDeTrabalhoBorderPane) {
+		try {
+            // Carrega o person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/cadastrarMateria.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            // Define o person overview dentro do root layout.
+            areaDeTrabalhoBorderPane.setCenter(personOverview);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
 	}
 }

@@ -41,6 +41,10 @@ public class TelaInicialController {
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
+    
+    public void exibirCadastrarMateria(){
+    	this.mainApp.showCadastrarMateria(this.areaDeTrabalhoBorderPane);
+    }
 
 }
 
