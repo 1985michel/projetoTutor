@@ -3,14 +3,21 @@ package com;
 
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 
+import com.crud.QuestaoDAO;
+import com.model.Questao;
+import com.view.CadastrarQuestaoController;
+import com.view.CbController;
 import com.view.TelaInicialController;
+import com.view.TreinarSimplesController;
 
 public class MainApp extends Application {
 
@@ -58,8 +65,12 @@ public class MainApp extends Application {
         try {
             // Carrega o person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/teste.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/cb.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
+            
+			CbController controller = loader.getController();
+		
+
 
             // Define o person overview dentro do root layout.
             areaDeTrabalhoBorderPane.setCenter(personOverview);
@@ -83,6 +94,7 @@ public class MainApp extends Application {
 		launch(args);
 	}
 
+	
 	public void showCadastrarMateria(BorderPane areaDeTrabalhoBorderPane) {
 		try {
             // Carrega o person overview.
@@ -96,5 +108,62 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 		
+	}
+	
+	
+	public void showCadastrarQuestao(BorderPane areaDeTrabalhoBorderPane) {
+		try {
+            // Carrega o person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/cadastrarQuestao.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+            
+            CadastrarQuestaoController controller = loader.getController();
+			controller.setMainApp(this);
+
+            // Define o person overview dentro do root layout.
+            areaDeTrabalhoBorderPane.setCenter(personOverview);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
+	}
+	
+	public void showCB(BorderPane areaDeTrabalhoBorderPane) {
+		try {
+            // Carrega o person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/cb.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            // Define o person overview dentro do root layout.
+            areaDeTrabalhoBorderPane.setCenter(personOverview);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
+	}
+	
+	public void showTreinarSimples(BorderPane areaDeTrabalhoBorderPane) {
+		try {
+            // Carrega o person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/treinarSimples.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+            
+            TreinarSimplesController controller = loader.getController();
+			controller.setMainApp(this);
+
+            // Define o person overview dentro do root layout.
+            areaDeTrabalhoBorderPane.setCenter(personOverview);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
+	}
+
+	public List<Questao> getListaDeQuestoes() {
+		// TODO Auto-generated method stub
+		return QuestaoDAO.getTodasQuestoes();
 	}
 }

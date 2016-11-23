@@ -45,6 +45,14 @@ public class TelaInicialController {
     public void exibirCadastrarMateria(){
     	this.mainApp.showCadastrarMateria(this.areaDeTrabalhoBorderPane);
     }
+    
+    public void exibirCadastrarQuestao(){
+    	this.mainApp.showCadastrarQuestao(this.areaDeTrabalhoBorderPane);
+    }
+    
+    public void exibirTreinarSimples(){
+    	this.mainApp.showTreinarSimples(this.areaDeTrabalhoBorderPane);
+    }
 
 }
 
